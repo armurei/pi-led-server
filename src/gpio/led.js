@@ -6,20 +6,20 @@ const leds = {
   'b': new Gpio(24, { mode: Gpio.OUTPUT })
 }
 
-const setLed = (color, value) => {
+function setLed (color, value) {
   const led = leds[color]
   led.pwmWrite(value)
 }
 
-const makeColor = targetColor => {
+function makeColor (targetColor) {
   Object.keys(leds).forEach(color => {
     const value = color === targetColor ? 255 : 0
     setLed(color, value)
   })
 }
 
-const setRgb = value => {
+function setRgb (value) {
   Object.keys(leds).forEach(color => setLed(color, value[color]))
 }
 
-exports = { setLed, makeColor }
+exports = { setLed, makeColor, setRgb }

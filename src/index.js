@@ -11,34 +11,34 @@ app.get('/',
   }
 )
 
-// const { setLed, makeColor } = require('./gpio/led')
+const { setLed, makeColor, setRgb } = require('./gpio/led')
 
 app.post('/led',
   express.json(),
   (req, res) => {
     const { value } = req.body
-    // setLed(value)
+    setLed(value)
     res.json({ message: 'LED state changed' })
   }
 )
 
 app.post('/red',
   (req, res) => {
-    // makeColor('r')
+    makeColor('r')
     res.json({ message: 'LED state changed' })
   }
 )
 
 app.post('/green',
   (req, res) => {
-    // makeColor('g')
+    makeColor('g')
     res.json({ message: 'LED state changed' })
   }
 )
 
 app.post('/blue',
   (req, res) => {
-    // makeColor('b')
+    makeColor('b')
     res.json({ message: 'LED state changed' })
   }
 )
@@ -47,8 +47,7 @@ app.post('/rgb',
   express.json(),
   (req, res) => {
     const { value } = req.body
-    console.log(value)
-    // setRgb(value)
+    setRgb(value)
     res.json({ message: 'LED state changed' })
   }
 )
