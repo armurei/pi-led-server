@@ -22,8 +22,6 @@ function setRgb (value) {
   Object.keys(leds).forEach(color => setLed(color, value[color]))
 }
 
-module.exports = {
-  setLed,
-  makeColor,
-  setRgb
-}
+exports.setLed = setLed
+exports.makeColor = makeColor
+exports.setRgb = setRgb

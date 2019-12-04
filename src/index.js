@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const port = 3000
+const { setLed, makeColor, setRgb } = require('./gpio/led.js')
 
 app.use(cors())
 
@@ -10,8 +11,6 @@ app.get('/',
     res.send('Connected to Pi server')
   }
 )
-
-const { setLed, makeColor, setRgb } = require('./gpio/led')
 
 app.post('/led',
   express.json(),
